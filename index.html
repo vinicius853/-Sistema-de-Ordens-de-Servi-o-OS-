@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Ordens de Serviço</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1>📋 Sistema de Ordens de Serviço</h1>
+  </header>
+
+  <!-- FILTROS -->
+  <section class="filters">
+    <input type="date" id="filtroData" />
+
+    <select id="filtroStatus">
+      <option value="">Todos os status</option>
+      <option value="Aberta">Aberta</option>
+      <option value="Em andamento">Em andamento</option>
+      <option value="Concluída">Concluída</option>
+    </select>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="dashboard">
+    <div class="card aberta">
+      <h3>Abertas</h3>
+      <span id="abertas">0</span>
+    </div>
+
+    <div class="card andamento">
+      <h3>Em andamento</h3>
+      <span id="andamento">0</span>
+    </div>
+
+    <div class="card concluida">
+      <h3>Concluídas</h3>
+      <span id="concluidas">0</span>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO -->
+  <section class="form-section">
+    <h2>Nova Ordem de Serviço</h2>
+
+    <!-- 🔥 CORREÇÃO AQUI -->
+    <form id="registroForm" autocomplete="off">
+      <input type="text" id="cliente" placeholder="Nome do cliente" required />
+      <input type="text" id="descricao" placeholder="Descrição do serviço" required />
+      <input type="date" id="data" required />
+
+      <select id="status" required>
+        <option value="">Status</option>
+        <option value="Aberta">Aberta</option>
+        <option value="Em andamento">Em andamento</option>
+        <option value="Concluída">Concluída</option>
+      </select>
+
+      <button type="submit">Cadastrar OS</button>
+    </form>
+  </section>
+
+  <!-- TABELA -->
+  <section class="table-section">
+    <h2>Ordens Registradas</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Cliente</th>
+          <th>Descrição</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody id="tabelaRegistros"></tbody>
+    </table>
+  </section>
+
+  <!-- GRÁFICO -->
+  <section class="graficos">
+    <h2>Gráfico de OS por Status</h2>
+    <div class="grafico-container">
+      <canvas id="graficoStatus"></canvas>
+    </div>
+  </section>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
